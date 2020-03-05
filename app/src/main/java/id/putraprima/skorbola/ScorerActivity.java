@@ -31,7 +31,10 @@ public class ScorerActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Isi nama Pencetak gol!", Toast.LENGTH_SHORT).show();
 
       }else{
+          EditText editText = (EditText) findViewById(R.id.scoreNameInput);
+          String stringToPassBack = editText.getText().toString();
         Intent intent = new Intent (this, MatchActivity.class);
+          intent.putExtra("SCORER_KEY", stringToPassBack);
         intent.putExtra(SCORER_KEY, scorer);
         setResult(MatchActivity.RESULT_OK, intent);
         finish();
